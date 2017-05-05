@@ -1,0 +1,6 @@
+[swarm-manager]
+docker-ansible-01
+
+[swarm-nodes]
+docker-ansible-02
+docker-ansible-03
