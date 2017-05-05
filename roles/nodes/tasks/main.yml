@@ -8,7 +8,7 @@
     name: '*'
     state: latest
 
--name: Add necessary packages
+- name: Add necessary packages
   yum:
     name: sudo
     state: present
