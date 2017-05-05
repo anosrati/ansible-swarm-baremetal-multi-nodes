@@ -1,2 +1,10 @@
 ---
-# defaults file for nodes
+dns_nameservers: ['129.118.38.58', '129.118.118.224']
+dns_remove_resolvconf: true
+dns_domain: "hpcc.ttu.edu"
+dns_searchs:
+   - "{{dns_domain}}"
+#dns_dhclient_rule: "supersede" # can be supersede or prepend
+
+#dns_dhclient_file: "/etc/dhcp/dhclient.conf"
+#dns_forced_in_dhclientconf: "{{ansible_os_family == 'Debian' or ansible_os_family == 'Redhat'}}"
