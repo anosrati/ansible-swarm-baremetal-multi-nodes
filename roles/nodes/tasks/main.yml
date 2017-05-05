@@ -9,6 +9,32 @@
     state: latest
 
 - name: Add necessary packages
-  yum:
-    name: sudo
+  yum: name={{item}} state=present update_cache=yes
+  with_items:
+    - sudo
+
+- name: Let wheel group's user sudo without password
+  lineinfile:
+    path: /etc/sudoers
     state: present
+    regexp: '^%wheel\s'
+    line: '%wheel       ALL=(ALL)       NOPASSWD: ALL'
+
+- name: Add swarmadmin user to the nodes
+  user:
+    name: swarmadmin
+    comment: "Docker Swarm Admin"
+    shell: /bin/bash
+    createhome: yes
+    groups: wheel
+
+- name: Set authorized key took from file
+  authorized_key:
+    user: swarmadmin
+    state: present
+    key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+
+- name: Add .ssh directory to swarmadmin user's home directory
+  file:
+    path: /home/swarmadmin/.ssh/authorized_keys
+    mode: 0644
