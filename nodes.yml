@@ -1,0 +1,6 @@
+---
+  - hosts: swarm-nodes
+    remote_user: root
+
+    roles:
+      - nodes

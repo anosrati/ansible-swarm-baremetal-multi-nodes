@@ -1,0 +1,6 @@
+---
+  - hosts: swarm-manager
+    remote_user: root
+
+    roles:
+      - manager
