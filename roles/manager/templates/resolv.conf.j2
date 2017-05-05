@@ -1,7 +1,7 @@
-# {{ ansible_managed }}
-#{% if dns_domain is defined %}
-#domain {{dns_domain}}
-#{% endif %}
+{# {{ ansible_managed }} #}
+{# {% if dns_domain is defined %} #}
+{# domain {{dns_domain}} #}
+{# {% endif %} #}
 
 {% if dns_searchs is defined %}
 search {% for name in dns_searchs %}{{name}} {% endfor %}
