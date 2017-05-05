@@ -3,6 +3,3 @@
     tasks:
       - name: Get servers' hostname
         command: hostname
-
-      - name: Check servers connectivity
-          ping:
