@@ -54,7 +54,7 @@
 
 - name: Remove the public ssh key from the local machine
   file:
-    path: temp/*
+    path: temp/
     state: absent
     recurse: yes
     state: directory
