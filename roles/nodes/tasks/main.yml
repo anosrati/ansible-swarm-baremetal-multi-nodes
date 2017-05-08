@@ -22,7 +22,7 @@
 
 - name: Add swarm user to the nodes
   user:
-    name: {{ swarm_user }}
+    name: {{swarm_user}}
     comment: "Docker Swarm Admin"
     shell: /bin/bash
     createhome: yes
@@ -30,11 +30,11 @@
 
 - name: Set authorized key took from file
   authorized_key:
-    user: {{ swarm_user }}
+    user: {{swarm_user}}
     state: present
     key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
 
 - name: Add .ssh directory to swarm user's home directory
   file:
-    path: /home/{{ swarm_user }}/.ssh/authorized_keys
+    path: /home/{{swarm_user}}/.ssh/authorized_keys
     mode: 0644
