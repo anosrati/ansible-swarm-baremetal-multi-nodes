@@ -52,6 +52,11 @@
     owner: "{{ swarm_user }}"
     mode: 0644
 
+- name: Remove the public ssh key from the local machine
+  file:
+    path: temp/*
+    state: absent
+
 #
 # - name: Add .ssh directory to swarm user's home directory
 #   file:
