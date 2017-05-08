@@ -3,4 +3,5 @@
     remote_user: root
 
     roles:
-      - geerlingguy.ntp
+        - yatesr.timezone
+        - geerlingguy.ntp
