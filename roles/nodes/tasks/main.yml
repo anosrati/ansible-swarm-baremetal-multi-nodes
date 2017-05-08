@@ -28,18 +28,12 @@
     createhome: yes
     groups: wheel
 
-# - name: copy ssh public key from swarm mangger to tmp directory
-#   #hosts: swarm-manager
-#   fetch:
-#     src: /root/.ssh/id_rsa.pub
-#     dest: ./temp
-#     fail_on_missing: yes
+- name: Set authorized key took from file
+  authorized_key:
+    user: "{{ swarm_user }}"
+    state: present
+    key: "{{ lookup('file', 'temp/docker-ansible-01/root/.ssh/id_rsa.pub') }}"
 
-# - name: Set authorized key took from file
-#   authorized_key:
-#     user: "{{ swarm_user }}"
-#     state: present
-#     key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
 #
 # - name: Add .ssh directory to swarm user's home directory
 #   file:
