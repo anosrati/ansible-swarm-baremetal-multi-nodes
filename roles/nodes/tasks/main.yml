@@ -33,6 +33,7 @@
   fetch:
     src: /root/.ssh/id_rsa.pub
     dest: ./temp
+    fail_on_missing: yes
 
 # - name: Set authorized key took from file
 #   authorized_key:
