@@ -29,7 +29,7 @@
     groups: wheel
 
 - name: copy ssh public key from swarm mangger to tmp directory
-  hosts: swarm-manager
+  #hosts: swarm-manager
   fetch:
     src: /root/.ssh/id_rsa.pub
     dest: ./temp
