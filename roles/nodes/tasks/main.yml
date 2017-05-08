@@ -43,7 +43,7 @@
 
 - name: change the .ssh and .ssh/authorized_key permission
   file:
-    path: /home/"{{ swarm_user }}"/.ssh/authorized_keys
+    path: /home/{{swarm_user}}/.ssh/authorized_keys
     state: file
     owner: "{{ swarm_user }}"
     mode: 0644
