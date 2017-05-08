@@ -30,7 +30,7 @@
 
 - name: Set authorized key took from file
   authorized_key:
-    user: "{{ swarm_user }}""
+    user: "{{ swarm_user }}"
     state: present
     key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
 
