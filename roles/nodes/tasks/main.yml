@@ -34,6 +34,20 @@
     state: present
     key: "{{ lookup('file', 'temp/docker-ansible-01/root/.ssh/id_rsa.pub') }}"
 
+- name: change the .ssh and .ssh/authorized_key permission
+  file:
+    path: /home/"{{ swarm_user }}"/.ssh
+    state: directory
+    owner: "{{ swarm_user }}"
+    mode: 0700
+
+- name: change the .ssh and .ssh/authorized_key permission
+  file:
+    path: /home/"{{ swarm_user }}"/.ssh/authorized_keys
+    state: file
+    owner: "{{ swarm_user }}"
+    mode: 0644
+
 #
 # - name: Add .ssh directory to swarm user's home directory
 #   file:
