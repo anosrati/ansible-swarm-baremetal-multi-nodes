@@ -28,7 +28,7 @@
     createhome: yes
     groups: wheel
 
-hosts: manager
+hosts: swarm-manager
   - name: copy ssh public key from swarm mangger to tmp directory
     fetch: src=/root/.ssh/id_rsa.pub dest=./atemp
 
