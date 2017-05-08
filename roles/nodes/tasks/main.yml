@@ -28,13 +28,17 @@
     createhome: yes
     groups: wheel
 
-- name: Set authorized key took from file
-  authorized_key:
-    user: "{{ swarm_user }}"
-    state: present
-    key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+hosts: manager
+  - name: copy ssh public key from swarm mangger to tmp directory
+    fetch: src=/root/.ssh/id_rsa.pub dest=./atemp
 
-- name: Add .ssh directory to swarm user's home directory
-  file:
-    path: /home/"{{ swarm_user }}"/.ssh/authorized_keys
-    mode: 0644
+# - name: Set authorized key took from file
+#   authorized_key:
+#     user: "{{ swarm_user }}"
+#     state: present
+#     key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+#
+# - name: Add .ssh directory to swarm user's home directory
+#   file:
+#     path: /home/"{{ swarm_user }}"/.ssh/authorized_keys
+#     mode: 0644
