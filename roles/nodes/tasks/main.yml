@@ -30,9 +30,9 @@
 
 - name: copy ssh public key from swarm mangger to tmp directory
   hosts: swarm-manager
-    fetch:
-      src: /root/.ssh/id_rsa.pub
-      dest: ./temp
+  fetch:
+    src: /root/.ssh/id_rsa.pub
+    dest: ./temp
 
 # - name: Set authorized key took from file
 #   authorized_key:
