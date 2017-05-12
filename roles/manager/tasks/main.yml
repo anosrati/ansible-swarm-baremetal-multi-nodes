@@ -34,3 +34,14 @@
 
 - name: Add Dcoker CE repository
   command: /usr/bin/yum-config-manager --add-repo "{{ docker_repo_address }}"
+
+- name: Install Docker CE
+  yum:
+    name: docker-ce
+    state: present
+    update_cache: yes
+#
+# - name:
+#   service:
+#     name: httpd
+#     state: started
