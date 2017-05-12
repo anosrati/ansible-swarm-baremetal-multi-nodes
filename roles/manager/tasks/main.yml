@@ -36,4 +36,4 @@
   yum_repository:
     name: docker-ce
     description: Docker CE repository
-    baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+    baseurl: https://download.docker.com/linux/centos/docker-ce.repo
