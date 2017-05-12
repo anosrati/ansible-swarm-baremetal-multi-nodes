@@ -34,6 +34,6 @@
 
 - name: Add Dcoker CE repository
   yum_repository:
-    name: docker-ceee
+    name: docker-ce
     description: Docker CE repository
     baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
