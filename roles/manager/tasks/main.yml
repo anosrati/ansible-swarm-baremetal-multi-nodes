@@ -42,12 +42,12 @@
     update_cache: yes
   when: not docker_version
 
-  - name: Install Docker CE
-    yum:
-      name: "{{ Docker_CE_Version }}"
-      state: present
-      update_cache: yes
-    when: docker_version
+- name: Install Docker CE
+  yum:
+    name: "{{ Docker_CE_Version }}"
+    state: present
+    update_cache: yes
+  when: docker_version
 
 - name: Start and enable Docker CE service
   service:
