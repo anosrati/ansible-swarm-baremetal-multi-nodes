@@ -33,7 +33,6 @@
     fail_on_missing: yes
 
 - name: Add Dcoker CE repository
-  yum_repository:
-    name: docker-ce
-    description: Docker CE repository
-    baseurl: https://download.docker.com/linux/centos/docker-ce.repo
+  command: /usr/bin/yum-config-manager --add-repo arg1
+  args:
+    repo: "{{ docker_repo_address }}"

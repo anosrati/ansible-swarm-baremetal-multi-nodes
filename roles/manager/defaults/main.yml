@@ -8,3 +8,5 @@ dns_searchs:
 
 #dns_dhclient_file: "/etc/dhcp/dhclient.conf"
 #dns_forced_in_dhclientconf: "{{ansible_os_family == 'Debian' or ansible_os_family == 'Redhat'}}"
+
+docker_repo_address: "https://download.docker.com/linux/centos/docker-ce.repo"
