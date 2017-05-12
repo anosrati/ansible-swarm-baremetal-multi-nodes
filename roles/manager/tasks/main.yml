@@ -40,8 +40,9 @@
     name: docker-ce
     state: present
     update_cache: yes
-#
-# - name:
-#   service:
-#     name: httpd
-#     state: started
+
+- name:
+  service:
+    name: docker
+    state: started
+    enabled: yes
