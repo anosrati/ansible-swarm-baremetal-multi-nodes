@@ -1,12 +1,12 @@
 ---
 ntp_enabled: true
-ntp_timezone: Etc/UTC
+ntp_timezone: America/Chicago
 
-ntp_manage_config: false
+ntp_manage_config: true
 
 # NTP server area configuration (leave empty for 'Worldwide').
 # See: http://support.ntp.org/bin/view/Servers/NTPPoolServers
-ntp_area: ''
+ntp_area: 'north-america'
 ntp_servers:
   - "0{{ ntp_area }}.pool.ntp.org iburst"
   - "1{{ ntp_area }}.pool.ntp.org iburst"
