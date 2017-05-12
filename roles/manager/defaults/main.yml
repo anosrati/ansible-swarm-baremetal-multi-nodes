@@ -9,4 +9,12 @@ dns_searchs:
 #dns_dhclient_file: "/etc/dhcp/dhclient.conf"
 #dns_forced_in_dhclientconf: "{{ansible_os_family == 'Debian' or ansible_os_family == 'Redhat'}}"
 
+#docker repo address
 docker_repo_address: "https://download.docker.com/linux/centos/docker-ce.repo"
+
+#set it true, if you want to install specific version of docker-ce
+docker_version: false
+
+#specifiy the specific version of docker-ce you want to install (Note: be sure)
+#that docker_version: true first
+Docker_CE_Version: ''

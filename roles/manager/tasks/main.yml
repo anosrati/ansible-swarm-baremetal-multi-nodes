@@ -7,7 +7,7 @@
   selinux:
     state: disabled
 
-- name: yum update
+- name: Run yum update
   yum:
     name: '*'
     state: latest
@@ -18,7 +18,7 @@
     - sudo
     - yum-utils
 
-- name: create ssh key pairs for user root on swarm manager
+- name: Create ssh key pairs for user root on swarm manager
   user:
     name: root
     generate_ssh_key: yes
@@ -26,7 +26,7 @@
     ssh_key_bits: 2048
     ssh_key_file: .ssh/id_rsa
 
-- name: fetch ssh public key from swarm mangger to the local tmp directory
+- name: Fetch ssh public key from swarm mangger to the local tmp directory
   fetch:
     src: /root/.ssh/id_rsa.pub
     dest: ./temp
@@ -40,8 +40,16 @@
     name: docker-ce
     state: present
     update_cache: yes
+  when: not docker_version
 
-- name:
+  - name: Install Docker CE
+    yum:
+      name: "{{ Docker_CE_Version }}"
+      state: present
+      update_cache: yes
+    when: docker_version
+
+- name: Start and enable Docker CE service
   service:
     name: docker
     state: started
