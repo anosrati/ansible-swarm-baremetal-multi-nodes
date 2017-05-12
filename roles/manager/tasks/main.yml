@@ -16,6 +16,7 @@
   yum: name={{item}} state=present update_cache=yes
   with_items:
     - sudo
+    - yum-utils
 
 - name: create ssh key pairs for user root on swarm manager
   user:
@@ -30,3 +31,9 @@
     src: /root/.ssh/id_rsa.pub
     dest: ./temp
     fail_on_missing: yes
+
+- name: Add Dcoker CE repository
+  yum_repository:
+    name: docker-ceee
+    description: Docker CE repository
+    baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
