@@ -42,7 +42,7 @@
     update_cache: yes
   when: not docker_version
 
-- name: Install specific version of Docker CE
+- name: Install Docker CE
   yum:
     name: "{{ Docker_CE_Version }}"
     state: present
@@ -54,3 +54,14 @@
     name: docker
     state: started
     enabled: yes
+
+- name: Re-Install glibc-common package to add necessary locales (Remove)
+  yum:
+    name: glibc-common
+    state: absent
+
+- name: Re-Install glibc-common package to add necessary locales (Install)
+  yum:
+    name: glibc-common
+    state: present
+    update_cache: yes
