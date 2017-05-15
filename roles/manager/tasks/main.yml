@@ -42,7 +42,7 @@
     update_cache: yes
   when: not docker_version
 
-- name: Install Docker CE
+- name: Install specific version of Docker CE
   yum:
     name: "{{ Docker_CE_Version }}"
     state: present
