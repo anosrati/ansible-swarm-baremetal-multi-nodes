@@ -55,13 +55,5 @@
     state: started
     enabled: yes
 
-- name: Re-Install glibc-common package to add necessary locales (Remove)
-  yum:
-    name: glibc-common
-    state: absent
-
-- name: Re-Install glibc-common package to add necessary locales (Install)
-  yum:
-    name: glibc-common
-    state: present
-    update_cache: yes
+- name: Re-Install glibc-common package to add necessary locales
+  command: yum reinstall -y glibc-common
