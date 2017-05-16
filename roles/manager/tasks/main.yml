@@ -58,6 +58,5 @@
 - name: Re-Install glibc-common package to add necessary locales
   command: yum reinstall -y glibc-common
 
-- locale_gen:
-    name: en_US.utf8
-    state: present
+- name: Set locale for en_US.utf8
+  command: localectl set-locale LANG=en_US.utf8
