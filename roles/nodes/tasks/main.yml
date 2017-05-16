@@ -51,9 +51,3 @@
     state: file
     owner: "{{ swarm_user }}"
     mode: 0644
-
-#
-# - name: Add .ssh directory to swarm user's home directory
-#   file:
-#     path: /home/"{{ swarm_user }}"/.ssh/authorized_keys
-#     mode: 0644
