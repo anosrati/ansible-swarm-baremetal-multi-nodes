@@ -1,6 +1,7 @@
 ---
 - name: Ensure dns servers are configured in /etc/resolv.conf
   template: src=resolv.conf.j2 dest=/etc/resolv.conf
+  when: dns_setup
   #tags: [configuration,dns]
 
 - name: Disabling SELinux
@@ -16,6 +17,7 @@
   yum: name={{item}} state=present update_cache=yes
   with_items:
     - sudo
+    - vim
 
 - name: Let wheel group's user sudo without password
   lineinfile:
@@ -36,7 +38,11 @@
   authorized_key:
     user: "{{ swarm_user }}"
     state: present
-    key: "{{ lookup('file', 'temp/docker-ansible-01/root/.ssh/id_rsa.pub') }}"
+    key: "{{ lookup('file', 'temp/{{swarm_manager_name}}/root/.ssh/id_rsa.pub') }}"
+
+# - name: Test variables
+#   debug:
+#     msg="temp/{{swarm_manager_name}}/root/.ssh/id_rsa.pub"
 
 - name: change the .ssh and .ssh/authorized_key permission
   file:

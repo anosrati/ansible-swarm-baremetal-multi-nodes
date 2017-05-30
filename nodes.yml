@@ -1,5 +1,5 @@
 ---
-  - hosts: swarm-nodes
+  - hosts: docker-swarm-nodes
     remote_user: root
 
     roles:

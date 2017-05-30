@@ -1,7 +1,7 @@
-[swarm-manager]
+[docker-swarm-manager]
 swarm-manager
 
-[swarm-nodes]
+[docker-swarm-nodes]
 swarm-client-01
 swarm-client-02
 swarm-client-03

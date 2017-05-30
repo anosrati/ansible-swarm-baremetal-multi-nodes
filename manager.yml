@@ -1,5 +1,5 @@
 ---
-  - hosts: swarm-manager
+  - hosts: docker-swarm-manager
     remote_user: root
 
     roles:

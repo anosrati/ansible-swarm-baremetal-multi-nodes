@@ -1,4 +1,5 @@
 ---
+dns_setup: false
 dns_nameservers: ['129.118.38.58', '129.118.118.224']
 dns_remove_resolvconf: true
 dns_domain: "hpcc.ttu.edu"
