@@ -18,6 +18,7 @@
   with_items:
     - sudo
     - yum-utils
+    - vim
 
 - name: Create ssh key pairs for user root on swarm manager
   user:
@@ -34,21 +35,21 @@
     fail_on_missing: yes
 
 - name: Add Dcoker CE repository
-  command: /usr/bin/yum-config-manager --add-repo "{{ docker_repo_address }}"
+  command: /usr/bin/yum-config-manager --add-repo "{{ Docker_repo_address }}"
 
 - name: Install Docker CE
   yum:
     name: docker-ce
     state: present
     update_cache: yes
-  when: not docker_version
+  when: not Docker_version
 
 - name: Install Docker CE
   yum:
-    name: "{{ Docker_CE_Version }}"
+    name: "{{ Docker_CE_version }}"
     state: present
     update_cache: yes
-  when: docker_version
+  when: Docker_version
 
 - name: Start and enable Docker CE service
   service:
@@ -62,6 +63,21 @@
 - name: Set locale for en_US.utf8
   command: localectl set-locale LANG=en_US.utf8
 
+# - name: Remove the existing instanse of docker-machine
+#   file:
+#     state: absent
+#     path: /usr/local/bin/docker-machine
+
 - name: Install Docker machine
-  shell: curl -L https://github.com/docker/machine/releases/download/v0.11.0/docker-machine-`uname -s`-`uname -m` > /tmp/docker-machine
-  
+  get_url:
+    url: https://github.com/docker/machine/releases/download/v{{Docker_machine_version}}/docker-machine-{{Docker_machine_OS}}-{{Docker_machine_arch}}
+    dest: /usr/local/bin/docker-machine
+    mode: 755
+    force: yes
+  tags:
+    - curl
+
+
+
+    #debug:
+    #  msg="https://github.com/docker/machine/releases/download/v{{Docker_machine_version}}/docker-machine-{{Docker_machine_OS}}-{{Docker_machine_arch}}"

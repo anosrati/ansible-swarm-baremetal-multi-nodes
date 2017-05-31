@@ -11,11 +11,24 @@ dns_searchs:
 #dns_forced_in_dhclientconf: "{{ansible_os_family == 'Debian' or ansible_os_family == 'Redhat'}}"
 
 #docker repo address
-docker_repo_address: "https://download.docker.com/linux/centos/docker-ce.repo"
+Docker_repo_address: "https://download.docker.com/linux/centos/docker-ce.repo"
 
 #set it true, if you want to install specific version of docker-ce
-docker_version: false
+Docker_version: false
 
-#specifiy the specific version of docker-ce you want to install (Note: be sure)
+#specifiy the version of docker-ce you want to install (Note: be sure)
 #that docker_version: true first
-Docker_CE_Version: ''
+Docker_CE_version: ''
+
+#set it true, if you want to install specific version of docker-machine
+Docker_machine: true
+
+#specifiy the version of docker-machine you want to install (Note: be sure)
+#that Docker_machine_Version: true first
+Docker_machine_version: '0.11.0'
+
+#"uname -s" output, check to see if you can get it from setup module
+Docker_machine_OS: 'Linux'
+
+#"uname -m" output, check to see if you can get from setup module
+Docker_machine_arch: 'x86_64'
