@@ -61,3 +61,7 @@
 
 - name: Set locale for en_US.utf8
   command: localectl set-locale LANG=en_US.utf8
+
+- name: Install Docker machine
+  shell: curl -L https://github.com/docker/machine/releases/download/v0.11.0/docker-machine-`uname -s`-`uname -m` > /tmp/docker-machine
+  
