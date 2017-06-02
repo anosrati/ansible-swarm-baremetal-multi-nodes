@@ -1,0 +1,9 @@
+---
+- name: Gathering the IP addresses of the current swarm clients
+  vars:
+    swarm_clients_to_inspect: "{{ groups['docker-swarm-nodes'] }}"
+
+  tasks:
+    - template:
+      src: swarm-nodes-ip-addrs.j2
+      dest: temp/swarm-nodes-ip-addrs.txt

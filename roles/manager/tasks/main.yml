@@ -63,11 +63,6 @@
 - name: Set locale for en_US.utf8
   command: localectl set-locale LANG=en_US.utf8
 
-# - name: Remove the existing instanse of docker-machine
-#   file:
-#     state: absent
-#     path: /usr/local/bin/docker-machine
-
 - name: Install Docker machine
   get_url:
     url: https://github.com/docker/machine/releases/download/v{{Docker_machine_version}}/docker-machine-{{Docker_machine_OS}}-{{Docker_machine_arch}}
@@ -77,7 +72,22 @@
   tags:
     - curl
 
+- name: Use docker machine to install docker on the swarm nodes
+  debug:
+    #msg: "{{ item }}"
+    #msg: "{{ ansible_default_ipv4.address }}"
+    msg: "{{ hostvars['swarm-client-01'] }}"
+    #msg: "{{ item }}.ansible_default_ipv4.address }}"
+    #msg: "{{ hostvars['{{ item }}'].ansible_default_ipv4.address }}"
+    #msg: "{{ hostvars['swarm-client-01'] }}.ansible_default_ipv4.address"
 
-
-    #debug:
-    #  msg="https://github.com/docker/machine/releases/download/v{{Docker_machine_version}}/docker-machine-{{Docker_machine_OS}}-{{Docker_machine_arch}}"
+  with_items:
+    - "{{ groups['docker-swarm-nodes']}}"
+    #msg="{{ hostvars['swarm-client-01'].ansible_default_ipv4.address }}"
+  tags:
+    - test
+# - name: test
+#   debug:
+#     "msg='this is: {{ ansible_default_ipv4.address }}'"
+#   tags:
+#     - test

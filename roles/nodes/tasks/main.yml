@@ -57,3 +57,16 @@
     state: file
     owner: "{{ swarm_user }}"
     mode: 0644
+
+- name: Use docker machine to install docker on the swarm nodes
+  debug: msg="{{ hostvars[item].ansible_default_ipv4.address }}"
+  with_items: groups['docker-swarm-nodes']
+    #"msg='This is the address: {{ hostvars['swarm-client-01'].ansible_default_ipv4.address }}'"
+    #msg="{{ hostvars['docker-swarm-nodes'].ansible_default_ipv4.address }}"
+    #msg="{{ hostvars['swarm-client-01'].ansible_default_ipv4.address }}"
+    #msg="{{ hostvars['swarm-client-01']['inventory_hostname'] }}"
+
+    #msg="{{ hostvars[item].ansible_default_ipv4.address }}"
+    #  with_items: groups['docker-swarm-nodes']
+  tags:
+    - test
