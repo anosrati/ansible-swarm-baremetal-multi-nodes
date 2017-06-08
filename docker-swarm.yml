@@ -1,10 +1,15 @@
 ---
+  - hosts: all
+    tasks:
+    - name: Stop firewalld before using docker machine
+      service:
+        name: firewalld
+        state: stopped
+      tags: [docker-swarm,firewalld]
+
   - hosts: docker-swarm-manager
     tasks:
-
     - name: Use docker machine to install docker on the swarm nodes
-      shell: echo "{{ hostvars[item]['ansible_host'] }}" > /root/name.txt
-      #debug: msg="host is {{ hostvars[item]['ansible_host'] }}"
+      shell: docker-machine create --driver generic --generic-ip-address="{{ hostvars[item]['ansible_host'] }}" --generic-ssh-user swarmadmin --generic-ssh-key /root/.ssh/id_rsa "{{ hostvars[item]['inventory_hostname'] }}"
       with_items:  "{{ groups['docker-swarm-nodes'] }}"
-      tags:
-        - test
+      tags: [docker-swarm,docker-machine]

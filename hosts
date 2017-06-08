@@ -1,11 +1,14 @@
 [docker-swarm-manager]
 swarm-manager ansible_host=100.68.124.150
 
-[docker-swarm-nodes]
+[docker-swarm-nodes-real]
 swarm-node-01 ansible_host=100.68.124.151
 swarm-node-02 ansible_host=100.68.124.152
 swarm-node-03 ansible_host=100.68.124.153
 swarm-node-04 ansible_host=100.68.124.154
+
+[docker-swarm-nodes]
+swarm-node-05 ansible_host=100.68.124.139
 
 [docker-swarm-client]
 swarm-client-01 ansible_host=100.68.124.149

@@ -18,9 +18,12 @@
 - name: Add necessary packages
   yum: name={{item}} state=present update_cache=yes
   with_items:
+    - epel-release
     - sudo
     - yum-utils
     - vim
+    - bash-completion
+    - pdsh
   tags: [base_config,packages]
 
 - name: Create ssh key pairs for user root on swarm manager

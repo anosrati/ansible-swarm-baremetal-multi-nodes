@@ -19,8 +19,10 @@
 - name: Add necessary packages
   yum: name={{item}} state=present update_cache=yes
   with_items:
+    - epel-release
     - sudo
     - vim
+    - bash-completion
   tags: [base_config,packages]
 
 - name: Let wheel group's user sudo without password
