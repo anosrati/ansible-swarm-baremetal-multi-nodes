@@ -1,10 +1,10 @@
 ---
-- hosts: docker-swarm-nodes
-  vars:
-    swarm_clients_to_inspect: "{{ groups['docker-swarm-nodes'] }}"
+  - hosts: docker-swarm-manager
+    tasks:
 
-  tasks:
-  - name: Gathering the IP addresses of the current swarm clients and store them in temp dir
-    local_action: template:
-      src: templates/swarm-nodes-ip-addrs.j2
-      dest: ./temp/swarm-nodes-ip-addrs.txt
+    - name: Use docker machine to install docker on the swarm nodes
+      shell: echo "{{ hostvars[item]['ansible_host'] }}" > /root/name.txt
+      #debug: msg="host is {{ hostvars[item]['ansible_host'] }}"
+      with_items:  "{{ groups['docker-swarm-nodes'] }}"
+      tags:
+        - test

@@ -2,16 +2,18 @@
 - name: Ensure dns servers are configured in /etc/resolv.conf
   template: src=resolv.conf.j2 dest=/etc/resolv.conf
   when: dns_setup
-  #tags: [configuration,dns]
+  tags: [base_config,dns]
 
 - name: Disabling SELinux
   selinux:
     state: disabled
+  tags: [base_config,selinux]
 
 - name: Run yum update
   yum:
     name: '*'
     state: latest
+  tags: [base_config,packages]
 
 - name: Add necessary packages
   yum: name={{item}} state=present update_cache=yes
@@ -19,6 +21,7 @@
     - sudo
     - yum-utils
     - vim
+  tags: [base_config,packages]
 
 - name: Create ssh key pairs for user root on swarm manager
   user:
@@ -27,22 +30,18 @@
     ssh_key_type: rsa
     ssh_key_bits: 2048
     ssh_key_file: .ssh/id_rsa
+  tags: [base_config,ssh]
 
 - name: Fetch ssh public key from swarm mangger to the local tmp directory
   fetch:
     src: /root/.ssh/id_rsa.pub
     dest: ./temp
     fail_on_missing: yes
+  tags: [base_config,ssh]
 
 - name: Add Dcoker CE repository
   command: /usr/bin/yum-config-manager --add-repo "{{ Docker_repo_address }}"
-
-- name: Install Docker CE
-  yum:
-    name: docker-ce
-    state: present
-    update_cache: yes
-  when: not Docker_version
+  tags: [base_config,docker]
 
 - name: Install Docker CE
   yum:
@@ -50,18 +49,24 @@
     state: present
     update_cache: yes
   when: Docker_version
+  tags: [base_config,docker]
 
 - name: Start and enable Docker CE service
   service:
     name: docker
     state: started
     enabled: yes
+  tags: [base_config,docker]
 
 - name: Re-Install glibc-common package to add necessary locales
   command: yum reinstall -y glibc-common
+  when: Reinstall_glibc_common
+  tags: [base_config,locale]
 
 - name: Set locale for en_US.utf8
-  command: localectl set-locale LANG=en_US.utf8
+  command: localectl set-locale LANG="{{ locale }}"
+  when: Set_locale
+  tags: [base_config,locale]
 
 - name: Install Docker machine
   get_url:
@@ -71,23 +76,4 @@
     force: yes
   tags:
     - curl
-
-- name: Use docker machine to install docker on the swarm nodes
-  debug:
-    #msg: "{{ item }}"
-    #msg: "{{ ansible_default_ipv4.address }}"
-    msg: "{{ hostvars['swarm-client-01'] }}"
-    #msg: "{{ item }}.ansible_default_ipv4.address }}"
-    #msg: "{{ hostvars['{{ item }}'].ansible_default_ipv4.address }}"
-    #msg: "{{ hostvars['swarm-client-01'] }}.ansible_default_ipv4.address"
-
-  with_items:
-    - "{{ groups['docker-swarm-nodes']}}"
-    #msg="{{ hostvars['swarm-client-01'].ansible_default_ipv4.address }}"
-  tags:
-    - test
-# - name: test
-#   debug:
-#     "msg='this is: {{ ansible_default_ipv4.address }}'"
-#   tags:
-#     - test
+  tags: [base_config,docker-machine]

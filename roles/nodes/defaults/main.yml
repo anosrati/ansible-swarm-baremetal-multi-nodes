@@ -1,10 +1,13 @@
 ---
 dns_setup: false
-dns_nameservers: ['129.118.38.58', '129.118.118.224']
+dns_nameservers: ['8.8.8.8', '8.8.4.4']
 dns_remove_resolvconf: true
 dns_domain: "hpcc.ttu.edu"
 dns_searchs:
    - "{{dns_domain}}"
 
+#name of the user you want to use in docker-machine to provision docker for the swarm-agents
 swarm_user: "swarmadmin"
+
+#set the name of the following parameter form hosts file
 swarm_manager_name: "swarm-manager"

@@ -2,22 +2,26 @@
 - name: Ensure dns servers are configured in /etc/resolv.conf
   template: src=resolv.conf.j2 dest=/etc/resolv.conf
   when: dns_setup
-  #tags: [configuration,dns]
+  tags: [base_config,dns]
+
 
 - name: Disabling SELinux
   selinux:
     state: disabled
+  tags: [base_config,selinux]
 
 - name: yum update
   yum:
     name: '*'
     state: latest
+  tags: [base_config,packages]
 
 - name: Add necessary packages
   yum: name={{item}} state=present update_cache=yes
   with_items:
     - sudo
     - vim
+  tags: [base_config,packages]
 
 - name: Let wheel group's user sudo without password
   lineinfile:
@@ -25,6 +29,7 @@
     state: present
     regexp: '^%wheel\s'
     line: '%wheel       ALL=(ALL)       NOPASSWD: ALL'
+  tags: [base_config,ssh]
 
 - name: Add swarm user to the nodes
   user:
@@ -33,40 +38,27 @@
     shell: /bin/bash
     createhome: yes
     groups: wheel
+  tags: [base_config,ssh]
 
 - name: Set authorized key took from file
   authorized_key:
     user: "{{ swarm_user }}"
     state: present
     key: "{{ lookup('file', 'temp/{{swarm_manager_name}}/root/.ssh/id_rsa.pub') }}"
+  tags: [base_config,ssh]
 
-# - name: Test variables
-#   debug:
-#     msg="temp/{{swarm_manager_name}}/root/.ssh/id_rsa.pub"
-
-- name: change the .ssh and .ssh/authorized_key permission
+- name: change the .ssh directory permission
   file:
     path: /home/"{{ swarm_user }}"/.ssh
     state: directory
     owner: "{{ swarm_user }}"
     mode: 0700
+  tags: [base_config,ssh]
 
-- name: change the .ssh and .ssh/authorized_key permission
+- name: change the .ssh/authorized_key file permission
   file:
     path: /home/{{swarm_user}}/.ssh/authorized_keys
     state: file
     owner: "{{ swarm_user }}"
     mode: 0644
-
-- name: Use docker machine to install docker on the swarm nodes
-  debug: msg="{{ hostvars[item].ansible_default_ipv4.address }}"
-  with_items: groups['docker-swarm-nodes']
-    #"msg='This is the address: {{ hostvars['swarm-client-01'].ansible_default_ipv4.address }}'"
-    #msg="{{ hostvars['docker-swarm-nodes'].ansible_default_ipv4.address }}"
-    #msg="{{ hostvars['swarm-client-01'].ansible_default_ipv4.address }}"
-    #msg="{{ hostvars['swarm-client-01']['inventory_hostname'] }}"
-
-    #msg="{{ hostvars[item].ansible_default_ipv4.address }}"
-    #  with_items: groups['docker-swarm-nodes']
-  tags:
-    - test
+  tags: [base_config,ssh]
