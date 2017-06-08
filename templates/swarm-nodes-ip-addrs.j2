@@ -1,5 +1,0 @@
-all_hosts += [
-{% for host in swarm_clients_to_inspect %}
-  "{{ hostvars[host].ansible_default_ipv4.address }}"
-{% endfor %}
-]
