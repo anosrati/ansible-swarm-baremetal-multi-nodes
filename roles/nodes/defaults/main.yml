@@ -6,8 +6,5 @@ dns_domain: "hpcc.ttu.edu"
 dns_searchs:
    - "{{dns_domain}}"
 
-#name of the user you want to use in docker-machine to provision docker for the swarm-agents
-swarm_user: "swarmadmin"
-
-#set the name of the following parameter form hosts file
-swarm_manager_name: "swarm-manager"
+#set the name of the following parameter form hosts file, more useful if we plan to have more than one manager
+#swarm_manager_name: "swarm-manager"

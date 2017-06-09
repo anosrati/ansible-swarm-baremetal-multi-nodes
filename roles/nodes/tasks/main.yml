@@ -16,10 +16,15 @@
     state: latest
   tags: [base_config,packages]
 
+- name: Add epel repository
+  yum: name={{item}} state=present
+  with_items:
+    - epel-release
+  tags: [base_config,packages]
+
 - name: Add necessary packages
   yum: name={{item}} state=present update_cache=yes
   with_items:
-    - epel-release
     - sudo
     - vim
     - bash-completion
@@ -35,32 +40,39 @@
 
 - name: Add swarm user to the nodes
   user:
-    name: "{{ swarm_user }}"
+    name: swarmadmin
     comment: "Docker Swarm Admin"
     shell: /bin/bash
     createhome: yes
     groups: wheel
   tags: [base_config,ssh]
 
-- name: Set authorized key took from file
+- name: Set the authorized key from a file (for swarm user)
   authorized_key:
-    user: "{{ swarm_user }}"
+    user: swarmadmin
     state: present
-    key: "{{ lookup('file', 'temp/{{swarm_manager_name}}/root/.ssh/id_rsa.pub') }}"
+    key: "{{ lookup('file', 'temp/swarm-manager/root/.ssh/id_rsa_2048_swarmadmin.pub') }}"
+  tags: [base_config,ssh]
+
+- name: Set the authorized key from a file (for root user)
+  authorized_key:
+    user: root
+    state: present
+    key: "{{ lookup('file', 'temp/swarm-manager/root/.ssh/id_rsa_2048_root.pub') }}"
   tags: [base_config,ssh]
 
 - name: change the .ssh directory permission
   file:
-    path: /home/"{{ swarm_user }}"/.ssh
+    path: /home/swarmadmin/.ssh
     state: directory
-    owner: "{{ swarm_user }}"
+    owner: swarmadmin
     mode: 0700
   tags: [base_config,ssh]
 
 - name: change the .ssh/authorized_key file permission
   file:
-    path: /home/{{swarm_user}}/.ssh/authorized_keys
+    path: /home/swarmadmin/.ssh/authorized_keys
     state: file
-    owner: "{{ swarm_user }}"
+    owner: swarmadmin
     mode: 0644
   tags: [base_config,ssh]
