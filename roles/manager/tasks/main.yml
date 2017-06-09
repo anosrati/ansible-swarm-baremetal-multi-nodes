@@ -15,10 +15,15 @@
     state: latest
   tags: [base_config,packages]
 
+- name: Add epel repository
+  yum: name={{item}} state=present
+  with_items:
+    - epel-release
+  tags: [base_config,packages]
+
 - name: Add necessary packages
   yum: name={{item}} state=present update_cache=yes
   with_items:
-    - epel-release
     - sudo
     - yum-utils
     - vim
@@ -48,10 +53,18 @@
 
 - name: Install Docker CE
   yum:
-    name: "{{ Docker_CE_version }}"
+    name: "docker-ce-{{ Docker_CE_version }}"
     state: present
     update_cache: yes
   when: Docker_version
+  tags: [base_config,docker]
+
+- name: Install Docker CE
+  yum:
+    name: docker-ce
+    state: present
+    update_cache: yes
+  when: not Docker_version
   tags: [base_config,docker]
 
 - name: Start and enable Docker CE service
@@ -77,6 +90,4 @@
     dest: /usr/local/bin/docker-machine
     mode: 755
     force: yes
-  tags:
-    - curl
   tags: [base_config,docker-machine]

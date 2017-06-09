@@ -6,28 +6,29 @@ dns_domain: "hpcc.ttu.edu"
 dns_searchs:
    - "{{dns_domain}}"
 
+
 #docker repo address
 Docker_repo_address: "https://download.docker.com/linux/centos/docker-ce.repo"
 
 #set it true, if you want to install specific version of docker-ce
-Docker_version: false
+Docker_version: true
 
-#specifiy the version of docker-ce you want to install (Note: be sure)
-#that docker_version: true first
-Docker_CE_version: ''
+#specifiy the version of docker-ce you want to install (Note: be sure that
+#docker_version: true first)
+Docker_CE_version: '17.03.1.ce-1.el7.centos.x86_64'
 
-#set it true, if you want to install specific version of docker-machine
-Docker_machine: true
 
-#specifiy the version of docker-machine you want to install (Note: be sure)
-#that Docker_machine_Version: true first
-Docker_machine_version: '0.11.0'
+
+#specifiy the version of docker-machine you want to install
+Docker_machine_version: '0.12.0'
 
 #"uname -s" output, check to see if you can get it from setup module
 Docker_machine_OS: 'Linux'
 
 #"uname -m" output, check to see if you can get from setup module
 Docker_machine_arch: 'x86_64'
+
+
 
 #Sometimes you need to reinstall glibc-common to have all the loacles installed on your machine
 #set it true, if you want to re-install it
