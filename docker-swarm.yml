@@ -8,11 +8,44 @@
         enabled: no
       tags: [docker-swarm,firewalld]
 
+
   - hosts: docker-swarm-manager
     tasks:
     - name: Use docker machine to install docker on the swarm nodes
       shell: docker-machine create --driver generic --generic-ip-address="{{ hostvars[item]['ansible_host'] }}" --generic-ssh-user swarmadmin --generic-ssh-key /root/.ssh/id_rsa_2048_swarmadmin "{{ hostvars[item]['inventory_hostname'] }}"
       with_items:  "{{ groups['docker-swarm-nodes'] }}"
+      when: Install_by_docker_machine
       tags: [docker-swarm,docker-machine]
 
-    #- name: Initializing the docker swarm
+
+  - hosts: docker-swarm-manager
+    tasks:
+    - name: Swarm manager Initialization
+      shell: docker swarm init --advertise-addr "{{ ansible_host }}"
+      tags: [docker-swarm,swarm-initialize]
+
+    - name: Finding the swarm token to let swarm nodes joins the swarm cluster
+      shell: docker swarm join-token worker -q
+      register: result
+      tags: [docker-swarm,swarm-initialize]
+
+    - name: Storing the swarm token in a local file (temp/token)
+      local_action: copy content={{ result.stdout }} dest=temp/token
+      tags: [docker-swarm,swarm-initialize]
+
+  - hosts: docker-swarm-nodes
+    vars:
+      swarm_token: "{{ lookup('file', 'temp/token') }}"
+    tasks:
+    - name: Joning swarm nodes to the swarm cluster by using the stored token
+      shell: docker swarm join --token "{{ swarm_token }}"  "{{ hostvars[item]['ansible_host'] }}":2377
+      with_items:  "{{ groups['docker-swarm-manager'] }}"
+      tags: [docker-swarm,swarm-initialize]
+
+
+  - hosts: docker-swarm-manager
+    tasks:
+    - name: Creating the overlay network for the swarm cluster
+      shell: docker network create --driver overlay --subnet "{{ overlay_network_IP }}"/"{{ overlay_network_netmask }}" --opt encrypted --attachable "{{ overlay_network_name }}"
+      #debug: msg="docker network create --driver overlay --subnet "{{ overlay_network_IP }}"/"{{ overlay_network_netmask }}" --opt encrypted --attachable "{{ overlay_network_name }}""
+      tags: [docker-swarm,overlay-network]

@@ -88,7 +88,7 @@
   when: not Install_by_docker_machine
   tags: [base_config,docker]
 
-- name: Install Docker CE
+- name: Install Docker CE (specific version)
   yum:
     name: "docker-ce-{{ Docker_CE_version }}"
     state: present
@@ -96,7 +96,7 @@
   when: not Install_by_docker_machine and Docker_version
   tags: [base_config,docker]
 
-- name: Install Docker CE
+- name: Install Docker CE (latest version)
   yum:
     name: docker-ce
     state: present

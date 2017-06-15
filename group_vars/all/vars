@@ -1,0 +1,17 @@
+---
+#If you want to install Docker on the swarm client by using docker-machine,
+#set the following to true.
+#Or
+#If you want to install Docker on the swarm client by installing Docker on
+#each of the Docker workers (nodes), set the following to false
+Install_by_docker_machine: false
+
+
+#set the name of the overlay network here
+overlay_network_name: simulation_network
+
+#set the network IP for the overlay network here
+overlay_network_IP: 172.23.0.0
+
+#set the netmask for the overlay network here (Only CIDR accepted)
+overlay_network_netmask: 16
