@@ -6,5 +6,20 @@ dns_domain: "hpcc.ttu.edu"
 dns_searchs:
    - "{{dns_domain}}"
 
-#set the name of the following parameter form hosts file, more useful if we plan to have more than one manager
-#swarm_manager_name: "swarm-manager"
+
+#If you want to install Docker on the swarm client by using docker-machine,
+#set the following to true.
+#Or
+#If you want to install Docker on the swarm client by installing Docker on
+#each of the Docker workers (nodes), set the following to false
+Install_by_docker_machine: false
+
+#docker repo address
+Docker_repo_address: "https://download.docker.com/linux/centos/docker-ce.repo"
+
+#set it true, if you want to install specific version of docker-ce
+Docker_version: true
+
+#specifiy the version of docker-ce you want to install (Note: be sure that
+#docker_version: true first)
+Docker_CE_version: '17.03.1.ce-1.el7.centos.x86_64'

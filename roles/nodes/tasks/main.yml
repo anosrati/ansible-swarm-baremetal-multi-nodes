@@ -26,6 +26,7 @@
   yum: name={{item}} state=present update_cache=yes
   with_items:
     - sudo
+    - yum-utils
     - vim
     - bash-completion
   tags: [base_config,packages]
@@ -36,6 +37,7 @@
     state: present
     regexp: '^%wheel\s'
     line: '%wheel       ALL=(ALL)       NOPASSWD: ALL'
+  when: Install_by_docker_machine
   tags: [base_config,ssh]
 
 - name: Add swarm user to the nodes
@@ -45,6 +47,7 @@
     shell: /bin/bash
     createhome: yes
     groups: wheel
+  when: Install_by_docker_machine
   tags: [base_config,ssh]
 
 - name: Set the authorized key from a file (for swarm user)
@@ -52,6 +55,7 @@
     user: swarmadmin
     state: present
     key: "{{ lookup('file', 'temp/swarm-manager/root/.ssh/id_rsa_2048_swarmadmin.pub') }}"
+  when: Install_by_docker_machine
   tags: [base_config,ssh]
 
 - name: Set the authorized key from a file (for root user)
@@ -67,6 +71,7 @@
     state: directory
     owner: swarmadmin
     mode: 0700
+  when: Install_by_docker_machine
   tags: [base_config,ssh]
 
 - name: change the .ssh/authorized_key file permission
@@ -75,4 +80,34 @@
     state: file
     owner: swarmadmin
     mode: 0644
+  when: Install_by_docker_machine
   tags: [base_config,ssh]
+
+- name: Add Dcoker CE repository
+  command: /usr/bin/yum-config-manager --add-repo "{{ Docker_repo_address }}"
+  when: not Install_by_docker_machine
+  tags: [base_config,docker]
+
+- name: Install Docker CE
+  yum:
+    name: "docker-ce-{{ Docker_CE_version }}"
+    state: present
+    update_cache: yes
+  when: not Install_by_docker_machine and Docker_version
+  tags: [base_config,docker]
+
+- name: Install Docker CE
+  yum:
+    name: docker-ce
+    state: present
+    update_cache: yes
+  when: not Install_by_docker_machine and not Docker_version
+  tags: [base_config,docker]
+
+- name: Start and enable Docker CE service
+  service:
+    name: docker
+    state: started
+    enabled: yes
+  when: not Install_by_docker_machine
+  tags: [base_config,docker]

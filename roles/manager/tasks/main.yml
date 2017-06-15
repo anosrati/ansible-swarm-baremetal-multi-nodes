@@ -38,6 +38,7 @@
     ssh_key_type: rsa
     ssh_key_bits: 2048
     ssh_key_file: .ssh/id_rsa_2048_swarmadmin
+  when: Install_by_docker_machine
   tags: [base_config,ssh]
 
 - name: Create ssh key pairs for the root user (will be used for management)
@@ -54,6 +55,7 @@
     src: /root/.ssh/id_rsa_2048_swarmadmin.pub
     dest: ./temp
     fail_on_missing: yes
+  when: Install_by_docker_machine
   tags: [base_config,ssh]
 
 - name: Fetch ssh public key (for root user) from the swarm manager to the local tmp directory
@@ -76,7 +78,7 @@
   command: /usr/bin/yum-config-manager --add-repo "{{ Docker_repo_address }}"
   tags: [base_config,docker]
 
-- name: Install Docker CE
+- name: Install Docker CE (specific version)
   yum:
     name: "docker-ce-{{ Docker_CE_version }}"
     state: present
@@ -84,7 +86,7 @@
   when: Docker_version
   tags: [base_config,docker]
 
-- name: Install Docker CE
+- name: Install Docker CE (latest version)
   yum:
     name: docker-ce
     state: present
@@ -115,4 +117,5 @@
     dest: /usr/local/bin/docker-machine
     mode: 755
     force: yes
+  when: Install_by_docker_machine
   tags: [base_config,docker-machine]

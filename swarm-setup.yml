@@ -1,0 +1,3 @@
+- include: manager.yml
+- include: nodes.yml
+- include: docker-swarm.yml
