@@ -1,2 +1,0 @@
-OP:  GET  http://<ipAdd>/redfish/v1/Chassis/Rack1-Block3
-EX:  curl http://192.168.19.3/redfish/v1/Chassis/Rack1-Block3

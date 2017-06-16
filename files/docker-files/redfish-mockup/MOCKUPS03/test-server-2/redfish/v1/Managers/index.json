@@ -1,1 +1,0 @@
-{"@odata.context":"/redfish/v1/$metadata#Managers","@odata.count":1,"@odata.id":"/redfish/v1/Managers","@odata.type":"#Managers.1.0.0.Manager","Description":"BMC","Members":[{"@odata.id":"/redfish/v1/Managers/iDRAC.Embedded.1"}],"Name":"Manager"}
