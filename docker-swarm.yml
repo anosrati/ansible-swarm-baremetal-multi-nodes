@@ -53,23 +53,39 @@
 
   - hosts: docker-swarm-nodes
     tasks:
+    - file:
+        path: /root/swarm/docker-files
+        state: directory
+        owner: root
+        group: root
+        mode: 0644
+      tags: [docker-swarm,docker-images]
+
     - name: copy "docker-files/docker-files.tar.gz" to the swarm nodes and extract it in their docker-files directory
       unarchive:
         src: ./files/docker-files/docker-files.tar.gz
-        dest: /root/swarm/
+        dest: /root/swarm/docker-files
         owner: root
         group: root
         mode: 0644
       tags: [docker-swarm,docker-images]
 
 
-  # - hosts: docker-swarm-manger
-  #   tasks:
-  #   - name: Add "scripts" directory to the swarm nodes
-  #     copy:
-  #       src: ./files/scripts/
-  #       dest: /root/swarm/
-  #       owner: root
-  #       group: root
-  #       mode: 0644
-  #     tags: [docker-swarm,docker-images]
+  - hosts: docker-swarm-manager
+    tasks:
+    - file:
+        path: /root/swarm/scripts
+        state: directory
+        owner: root
+        group: root
+        mode: 0644
+      tags: [docker-swarm,docker-images]
+
+    - name: copy "docker-files/docker-files.tar.gz" to the swarm nodes and extract it in their docker-files directory
+      unarchive:
+        src: ./files/scripts/scripts.tar.gz
+        dest: /root/swarm/scripts
+        owner: root
+        group: root
+        mode: 0644
+      tags: [docker-swarm,docker-images]
