@@ -1,4 +1,2 @@
 *.retry
 *.pub
-files/docker-files/*
-files/scripts/*
