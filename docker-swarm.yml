@@ -49,3 +49,27 @@
       shell: docker network create --driver overlay --subnet "{{ overlay_network_IP }}"/"{{ overlay_network_netmask }}" --opt encrypted --attachable "{{ overlay_network_name }}"
       #debug: msg="docker network create --driver overlay --subnet "{{ overlay_network_IP }}"/"{{ overlay_network_netmask }}" --opt encrypted --attachable "{{ overlay_network_name }}""
       tags: [docker-swarm,overlay-network]
+
+
+  - hosts: docker-swarm-nodes
+    tasks:
+    - name: Add "docker-files" directory to the swarm nodes
+      copy:
+        src: ./files/docker-files/
+        dest: /root/swarm/
+        owner: root
+        group: root
+        mode: 0644
+      tags: [docker-swarm,docker-images]
+
+
+  - hosts: docker-swarm-manger
+    tasks:
+    - name: Add "scripts" directory to the swarm nodes
+      copy:
+        src: ./files/scripts/
+        dest: /root/swarm/
+        owner: root
+        group: root
+        mode: 0644
+      tags: [docker-swarm,docker-images]
