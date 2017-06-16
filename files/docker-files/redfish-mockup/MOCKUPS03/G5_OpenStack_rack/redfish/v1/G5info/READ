@@ -1,0 +1,7 @@
+OP:  GET  http://<ipAdd>/redfish/v1/G5info
+EX:  curl http://192.168.19.3/redfish/v1/G5info
+
+This dumps some info about the G5 Redfish service (versions, features...)
+
+
+

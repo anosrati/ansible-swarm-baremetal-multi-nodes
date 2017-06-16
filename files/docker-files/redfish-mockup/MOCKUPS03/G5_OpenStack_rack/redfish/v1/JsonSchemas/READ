@@ -1,0 +1,6 @@
+OP:  GET  http://<ipAdd>/redfish/v1/JsonSchemas
+EX:  curl http://192.168.19.3/redfish/v1/JsonSchemas
+
+
+For now, we are only loading 2 json schema files.
+for 1.0 release, we will include all of them

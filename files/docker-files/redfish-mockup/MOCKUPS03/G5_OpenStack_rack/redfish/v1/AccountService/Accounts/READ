@@ -1,0 +1,2 @@
+OP:  GET  http://<ipAdd>/redfish/v1/AccountService/Accounts
+EX:  curl http://192.168.19.3/redfish/v1/AccountService/Accounts

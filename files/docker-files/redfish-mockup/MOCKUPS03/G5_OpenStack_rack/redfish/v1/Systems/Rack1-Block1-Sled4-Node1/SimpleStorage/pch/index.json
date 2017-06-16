@@ -1,0 +1,58 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#SimpleStorage.SimpleStorage",
+    "@odata.id": "/redfish/v1/Systems/Rack1-Block1-Sled4-Node1/SimpleStorage/pch",
+    "@odata.type": "#SimpleStorage.1.1.0.SimpleStorage",
+    "Id": "pch",
+    "Description": "PCH Simple Storage Controller",
+    "Name": "System_SATA",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "Devices": [
+        {
+            "Name": "Drive_1",
+            "Manufacturer": "Seagate",
+            "Model": "ST2000NM0024",
+            "CapacityBytes": 1931231343200,
+            "Status": {
+                "State": "Enabled",
+                "Health": "OK"
+            }
+        },
+        {
+            "Name": "Drive_2",
+            "Manufacturer": "Seagate",
+            "Model": "ST2000NM0024",
+            "CapacityBytes": 1931231343200,
+            "Status": {
+                "State": "Enabled",
+                "Health": "Degraded"
+            }
+        },
+        {
+            "Name": "Drive_3",
+            "Status": {
+                "State": "Absent"
+            }
+        },
+        {
+            "Name": "Drive_4",
+            "Status": {
+                "State": "Absent"
+            }
+        },
+        {
+            "Name": "Drive_5",
+            "Status": {
+                "State": "Absent"
+            }
+        },
+        {
+            "Name": "Drive_6",
+            "Status": {
+                "State": "Absent"
+            }
+        }
+    ]
+}

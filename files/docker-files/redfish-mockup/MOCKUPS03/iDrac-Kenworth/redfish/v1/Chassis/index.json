@@ -1,0 +1,1 @@
+{"@odata.context":"/redfish/v1/$metadata#Chassis","@odata.count":1,"@odata.id":"/redfish/v1/Chassis/","@odata.type":"#ChassisCollection.ChassisCollection","Description":"Collection of Chassis","Members":[{"@odata.id":"/redfish/v1/Chassis/System.Embedded.1"}],"Name":"Chassis Collection"}

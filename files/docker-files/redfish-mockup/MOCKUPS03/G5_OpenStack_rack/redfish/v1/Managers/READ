@@ -1,0 +1,12 @@
+OP:  GET  http://<ipAdd>/redfish/v1/Managers
+EX:  curl http://192.168.19.3/redfish/v1/Managers
+
+on G5, the Managers collection includes:
+   The main G5 G5 Rack Manager MC   at id:   Rack1-PowerBay1-MC1
+   the MCs in other powerBays
+   the Infrastructure Manager Im
+   the BlockControllers in each block
+
+Currently, we are not listing the sled BMCs in the managers collection
+we may add those in the future. TBD 
+   

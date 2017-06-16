@@ -1,0 +1,15 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#SimpleStorageCollection.SimpleStorageCollection",
+    "@odata.id": "/redfish/v1/Systems/Rack1-Block4-Sled6-Node1/SimpleStorage",
+    "@odata.type": "#SimpleStorageCollection.SimpleStorageCollection",
+    "Name": "Simple Storage Collection",
+    "Members@odata.count": 2,
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Systems/Rack1-Block4-Sled6-Node1/SimpleStorage/pch"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/Rack1-Block4-Sled6-Node1/SimpleStorage/perc"
+        }
+    ]
+}

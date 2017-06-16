@@ -1,0 +1,19 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#Power.Power",
+    "@odata.id": "/redfish/v1/Chassis/Rack1-Block3/Power",
+    "@odata.type": "#Power.1.0.0.Power",
+    "Id": "Power",
+    "Name": "G5_Block_Power",
+    "PowerControl": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/Rack1-Block3/Power#/PowerControl/0",
+            "MemberId": "0",
+	    "Name": "Block_Fan_Power_Consumed",
+            "PowerConsumedWatts": 180,
+	    "Status": {
+	            "State": "Enabled",
+	            "Health": "OK"
+	    }
+        }
+    ]
+}

@@ -1,0 +1,57 @@
+{
+  "@odata.context": "/redfish/v1/$metadata#Managers/Members/$entity",
+  "@odata.id": "/redfish/v1/Managers/Rack1-PowerBay1-MC1",
+  "@odata.type": "#Managers.1.0.0.Manager",
+  "Id": "Rack1-PowerBay1-MC1",
+  "Name": "G5 Rack Manager",
+  "ManagerType": "RackManager",
+  "Description": "G5 Managed MC in PowerBay",
+  "ServiceEntryPointUUID": "4C4C4544-434D-1001-8000-44A842176740",
+  "UUID": "4C4C4544-434D-1001-8000-44A842176740",
+  "DateTime": "2015-12-11T13:51:28-06:00",
+  "DateTimeLocalOffset": "-06:00",
+  "FirmwareVersion": "02.31.035",
+  "Status": {
+    "State": "Enabled",
+    "Health": "OK"
+  },
+  "NetworkProtocol": {
+    "@odata.id": "/redfish/v1/Managers/Rack1-PowerBay1-MC1/NetworkProtocol"
+  },
+  "EthernetInterfaces": {
+    "@odata.id": "/redfish/v1/Managers/Rack1-PowerBay1-MC1/EthernetInterfaces"
+  },
+  "SerialInterfaces": {
+    "@odata.id": "/redfish/v1/Managers/Rack1-PowerBay1-MC1/SerialInterfaces"
+  },
+  "LogServices": {
+    "@odata.id": "/redfish/v1/Managers/Rack1-PowerBay1-MC1/LogServices"
+  },
+  "Links": {
+    "ManagerForChassis": [
+      {
+        "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay1"
+      }
+    ],
+    "ManagerInChassis": {
+        "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay1"
+    }
+  },
+  "Actions": {
+    "#Manager.Reset": {
+      "target": "/redfish/v1/Managers/managedMC/Actions/Manager.Reset",
+      "ResetType@Redfish.AllowableValues": [
+        "GracefulRestart",
+        "ForceRestart"
+      ]
+    },
+    "Oem": {
+    }
+  },
+  "Oem": {
+    "Dell_G5MC": {
+      "LastUpdateStatus": "UPDATE_SUCCESSFUL"
+    }
+  }
+}
+

@@ -1,0 +1,86 @@
+{
+  "@odata.context": "/redfish/v1/$metadata#Chassis/Members/$entity",
+  "@odata.id": "/redfish/v1/Chassis/Rack1-Block1-Sled1",
+  "@odata.type": "#Chassis.1.0.1.Chassis",
+  "Id": "Rack1-Block1-Sled1",
+  "Name": "G5 Sled",
+  "ChassisType": "Sled",
+  "Description": "G5 Sled",
+  "Manufacturer": "Dell",
+  "Model": "G5 Sled",
+  "IndicatorLED": "Unknown",
+  "PowerState": "OFF",
+  "Status": {
+    "State": "Enabled",
+    "Health": "OK"
+  },
+  "Thermal": {
+    "@odata.id": "/redfish/v1/Chassis/Rack1-Block1-Sled1/Thermal"
+  },
+  "Power": {
+    "@odata.id": "/redfish/v1/Chassis/Rack1-Block1-Sled1/Power"
+  },
+  "LogServices": {
+    "@odata.id": "/redfish/v1/Chassis/Rack1-Block1-Sled1/LogServices"
+  },
+  "Actions": {
+    "#Chassis.Reset": {
+      "target": "/redfish/v1/Chassis/Rack1-Block1-Sled1/Actions/Chassis.Reset",
+      "ResetType@Redfish.AllowableValues": [
+        "On",
+        "ForceOff",
+        "GracefulShutdown",
+        "ForceRestart",
+        "GracefulRestart"
+      ]
+    },
+    "Oem": {
+      "#Dell.G5SledReseat": {
+        "target": "/redfish/v1/Chassis/Rack1-Block1-Sled1/Actions/Chassis.Reseat"
+      }
+    }
+  },
+  "Oem": {
+    "Dell_G5MC": {
+      "BmcVersion": null,
+      "BmcIp": null,
+      "BmcMac": null
+    },
+    "Intel_RSA": {
+      "@odata.type": "http://rsa.intel.com/schema#RSA.Chassis",
+      "Location": {
+        "Id": "Sled1",
+        "ParentId": "Block1"
+      }
+    }
+  },
+  "Links": {
+    "ContainedBy": {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block1"
+    },
+    "PoweredBy": [
+      {
+        "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay1"
+      },
+      {
+        "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay2"
+      }
+    ],
+    "CooledBy": [
+      {
+        "@odata.id": "/redfish/v1/Chassis/Rack1-Block1"
+      }
+    ],
+    "ManagedBy": [
+      {
+        "@odata.id": "/redfish/v1/Managers/Rack1-PowerBay1-MC1"
+      },
+      {
+        "@odata.id": "/redfish/v1/Managers/Rack1-Block1-Bc"
+      }
+    ],
+    "ComputerSystems": [
+    ]
+  }
+}
+

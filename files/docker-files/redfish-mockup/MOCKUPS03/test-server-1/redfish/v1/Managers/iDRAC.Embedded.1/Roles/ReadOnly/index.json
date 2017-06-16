@@ -1,0 +1,1 @@
+{"@odata.context":"/redfish/v1/$metadata#AccountService/Roles/Members/$entity","@odata.id":"/redfish/v1/Managers/iDRAC.Embedded.1/Roles/ReadOnly","@odata.type":"#AccountService.1.0.0.Role","AssignedPrivileges":["Login"],"Description":"ReadOnly User Role","Id":"ReadOnly","IsPredefined":true,"Name":"User Role"}

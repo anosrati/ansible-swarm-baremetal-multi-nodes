@@ -1,0 +1,13 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#EthernetInterfaces.EthernetInterfaces",
+    "@odata.id": "/redfish/v1/Systems/Rack1-Block3-Sled3-Node1/EthernetInterfaces/2",
+    "@odata.type": "#EthernetInterface.1.0.1.EthernetInterface",
+    "Id": "2",
+    "Description": "Ethernet Interface",
+    "Name": "NIC_2",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "MACAddress": "AA:BB:CC:DD:EE:FF"
+}

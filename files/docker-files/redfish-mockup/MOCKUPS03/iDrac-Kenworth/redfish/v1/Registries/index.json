@@ -1,0 +1,1 @@
+{"@odata.context":"/redfish/v1/$metadata#Registries","@odata.count":2,"@odata.id":"/redfish/v1/Registries","@odata.type":"#MessageRegistryCollection.MessageRegistryCollection","Description":"Registry Repository","Members":[{"@odata.id":"/redfish/v1/Registries/Messages/En"},{"@odata.id":"/redfish/v1/Registries/BaseMessages/En"}],"Name":"Registry Repository"}

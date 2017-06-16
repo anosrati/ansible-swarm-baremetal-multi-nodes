@@ -1,0 +1,18 @@
+# Dockerfile for pacakging redfish mockup servers
+
+# Using python:3.4-alpine-Dell iamge
+FROM python:3.4-alpine-Dell
+
+# Dell Inc. 
+MAINTAINER  Ali Nosrati <ali_nosrati@dell.com>
+LABEL   Description="This image is used to package redfish mockup servers in python:3.4-alpine-Dell (version 0.3: response time added)" \
+        Version="0.3"
+
+RUN mkdir -p /opt/Redfish-Mockups
+COPY MOCKUPS03 /opt/Redfish-Mockups
+
+EXPOSE 8000
+
+WORKDIR /opt/Redfish-Mockups
+ENTRYPOINT ["./run-mockup.sh"]
+

@@ -1,0 +1,63 @@
+{
+  "@odata.context": "/redfish/v1/$metadata#Chassis",
+  "@odata.id": "/redfish/v1/Chassis",
+  "@odata.type": "#ChassisCollection.ChassisCollection",
+  "Name": "Chassis Collection",
+  "Members@odata.count": 18,
+  "Members": [
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1"
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block1"
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block2"
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block3"
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block4"
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay1"
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay2"
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block2-Sled1"
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block2-Sled3"
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block2-Sled5"
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block3-Sled1"
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block3-Sled2"
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block3-Sled3"
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block3-Sled4"
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block4-Sled1"
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block4-Sled2"
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block4-Sled3"
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block4-Sled5"
+    }
+  ]
+}

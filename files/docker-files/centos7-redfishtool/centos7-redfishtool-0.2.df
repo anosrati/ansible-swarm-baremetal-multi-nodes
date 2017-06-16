@@ -1,0 +1,29 @@
+# Dockerfile for pacakging redfishtool in Centos7
+#
+# Using centos:7 iamge
+FROM centos:7
+
+# Dell Inc.
+MAINTAINER  Ali Nosrati <ali_nosrati@dell.com>
+LABEL   Description="This image is used to package redfishtool command in centos:7 images (version 0.2: nslookup added, Redfishtool dir replaced by Redfish-Monitoring dir, Volume for results added)" \
+        Version="0.2"
+
+RUN yum update -y
+RUN yum install -y epel-release
+
+RUN yum install -y python34
+RUN yum install -y python34-pip
+RUN python3.4 -m pip install requests
+
+RUN yum install -y net-tools
+RUN yum install -y bind-utils
+RUN yum install -y vim
+
+RUN mkdir /opt/Redfish-Monitoring
+COPY  Redfish-Monitoring /opt/Redfish-Monitoring
+
+#VOLUME ["Redfish-Monitoring/results:/opt/Redfish-Monitoring/results:rw"]
+
+WORKDIR /opt/Redfish-Monitoring
+#ENTRYPOINT ["/bin/bash"]
+

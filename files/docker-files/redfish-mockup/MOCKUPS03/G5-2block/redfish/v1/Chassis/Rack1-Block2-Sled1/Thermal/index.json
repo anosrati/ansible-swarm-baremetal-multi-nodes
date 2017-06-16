@@ -1,0 +1,78 @@
+{
+  "@odata.context": "/redfish/v1/$metadata#Chassis/Members/Rack1-Block2-Sled1/Thermal/$entity",
+  "@odata.id": "/redfish/v1/Chassis/Rack1-Block2-Sled1/Thermal",
+  "@odata.type": "#Thermal.1.0.0.Thermal",
+  "Id": "Thermal",
+  "Name": "Thermal",
+  "Temperatures": [
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block2-Sled1/Thermal#/Temperatures/0",
+      "MemberId": "0",
+      "Name": "InletTemp",
+      "SensorNumber": 41,
+      "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+      },
+      "ReadingCelsius": 19,
+      "UpperThresholdNonCritical": 37,
+      "LowerThresholdNonCritical": 10,
+      "UpperThresholdCritical": 39,
+      "LowerThresholdCritical": 5,
+      "MinReadingRange": 0,
+      "MaxReadingRange": 100,
+      "PhysicalContext": "Intake",
+      "RelatedItem": [
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block2"
+        }
+      ]
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block2-Sled1/Thermal#/Temperatures/1",
+      "MemberId": "1",
+      "Name": "CpuMaxTemp",
+      "SensorNumber": 42,
+      "Status": {
+        "State": "Enabled",
+        "Health": null
+      },
+      "ReadingCelsius": 255,
+      "UpperThresholdNonCritical": 100,
+      "LowerThresholdNonCritical": 10,
+      "UpperThresholdCritical": 105,
+      "LowerThresholdCritical": 5,
+      "MinReadingRange": 0,
+      "MaxReadingRange": 200,
+      "PhysicalContext": "CPU",
+      "RelatedItem": [
+        {
+          "@odata.id": "/redfish/v1/Systems/Rack1-Block2-Sled1-Node1"
+        }
+      ]
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block2-Sled1/Thermal#/Temperatures/2",
+      "MemberId": "2",
+      "Name": "MemMaxTemp",
+      "SensorNumber": 43,
+      "Status": {
+        "State": "Enabled",
+        "Health": null
+      },
+      "ReadingCelsius": 255,
+      "UpperThresholdNonCritical": 80,
+      "LowerThresholdNonCritical": 10,
+      "UpperThresholdCritical": 85,
+      "LowerThresholdCritical": 5,
+      "MinReadingRange": 0,
+      "MaxReadingRange": 200,
+      "PhysicalContext": "CPU",
+      "RelatedItem": [
+        {
+          "@odata.id": "/redfish/v1/Systems/Rack1-Block2-Sled1-Node1"
+        }
+      ]
+    }
+  ]
+}

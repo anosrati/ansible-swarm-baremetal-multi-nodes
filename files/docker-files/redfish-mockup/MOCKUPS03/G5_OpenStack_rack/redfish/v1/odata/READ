@@ -1,0 +1,4 @@
+OP:  GET  http://<ipAddr>/redfish/v1/odata
+EX:  curl http://192.168.19.3/redfish/v1/odata
+
+This is the Odata Service Document

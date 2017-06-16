@@ -1,0 +1,6 @@
+OP:  GET  http://<ipAdd>/redfish/v1/Managers/Rack1-PowerBay2-MC1
+EX:  curl http://192.168.19.3/redfish/v1/Managers/Rack1-PowerBay2-MC1
+
+This is the MC in the Second PowerBay--the top PowerBay. 
+it is an unmaaged MC.
+It is NOT the Rack Manager or PSME

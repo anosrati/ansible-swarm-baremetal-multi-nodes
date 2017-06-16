@@ -1,0 +1,79 @@
+{
+  "@odata.context": "/redfish/v1/$metadata#Chassis/Members/$entity",
+  "@odata.id": "/redfish/v1/Chassis/Rack1-Block1",
+  "@odata.type": "#Chassis.1.0.1.Chassis",
+  "Id": "Rack1-Block1",
+  "Name": "G5 Block",
+  "ChassisType": "Enclosure",
+  "Description": "G5 Block Chassis",
+  "Manufacturer": "Dell",
+  "Model": "G5 Block",
+  "SerialNumber": null,
+  "AssetTag": null,
+  "PowerState": "ON",
+  "Status": {
+    "State": "Enabled",
+    "Health": "OK"
+  },
+  "Thermal": {
+    "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal"
+  },
+  "Power": {
+    "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Power"
+  },
+  "Oem": {
+    "Intel_RSA": {
+      "@odata.type": "http://rsa.intel.com/schema#RSA.Chassis",
+      "Location": {
+        "Id": "Block1",
+        "ParentId": "Rack1"
+      }
+    }
+  },
+  "Links": {
+    "ContainedBy": {
+      "@odata.id": "/redfish/v1/Chassis/Rack1"
+    },
+    "Contains": [
+      {
+        "@odata.id": "/redfish/v1/Chassis/Rack1-Block1-Sled1"
+      },
+      {
+        "@odata.id": "/redfish/v1/Chassis/Rack1-Block1-Sled2"
+      },
+      {
+        "@odata.id": "/redfish/v1/Chassis/Rack1-Block1-Sled3"
+      },
+      {
+        "@odata.id": "/redfish/v1/Chassis/Rack1-Block1-Sled4"
+      }
+    ],
+    "PoweredBy": [
+      {
+        "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay1"
+      },
+      {
+        "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay2"
+      }
+    ],
+    "CooledBy": [
+      {
+        "@odata.id": "/redfish/v1/Chassis/Rack1-Block1"
+      }
+    ],
+    "ManagedBy": [
+      {
+        "@odata.id": "/redfish/v1/Managers/Rack1-PowerBay1-MC1"
+      },
+      {
+        "@odata.id": "/redfish/v1/Managers/Rack1-Block1-Bc"
+      }
+    ],
+    "ManagersInChassis": [
+      {
+        "@odata.id": "/redfish/v1/Managers/Rack1-Block1-Bc"
+      }
+    ]
+  }
+}
+

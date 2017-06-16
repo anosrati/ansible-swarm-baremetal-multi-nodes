@@ -1,0 +1,6 @@
+OP:  GET  http://<ipAddr>/redfish/v1/Systems
+EX:  curl http://192.168.19.3/redfish/v1/Systems
+
+Block1 has two systems: 
+Block2 has two systems:
+BLocks 3 and 4 have 8 systems

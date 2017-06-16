@@ -1,0 +1,333 @@
+{
+  "@odata.context": "/redfish/v1/$metadata#Chassis/Members/Rack1-Block1/Thermal/$entity",
+  "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal",
+  "@odata.type": "#Thermal.1.0.0.Thermal",
+  "Id": "Thermal",
+  "Name": "Thermal",
+  "Temperatures": [
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Temperatures/0",
+      "MemberId": "0",
+      "Name": "InletTemp",
+      "SensorNumber": 41,
+      "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+      },
+      "ReadingCelsius": 19,
+      "UpperThresholdNonCritical": 37,
+      "LowerThresholdNonCritical": 10,
+      "UpperThresholdCritical": 39,
+      "LowerThresholdCritical": 5,
+      "MinReadingRange": 0,
+      "MaxReadingRange": 100,
+      "PhysicalContext": "Intake"
+    }
+  ],
+  "Fans": [
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/0",
+      "MemberId": "0",
+      "Name": "Fan1",
+      "FanName": "Fan1",
+      "PhysicalContext": "Backplane",
+      "Status": {
+        "State": "Enabled",
+        "Health": "Warning"
+      },
+      "Reading": 3960,
+      "LowerThresholdCritical": 16,
+      "ReadingUnits": "RPM",
+      "MinReadingRange": 0,
+      "MaxReadingRange": 25000,
+      "Redundancy": [
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Redundancy/0"
+        }
+      ]
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/1",
+      "MemberId": "1",
+      "Name": "Fan2",
+      "FanName": "Fan2",
+      "PhysicalContext": "Backplane",
+      "Status": {
+        "State": "Enabled",
+        "Health": "Warning"
+      },
+      "Reading": 4020,
+      "LowerThresholdCritical": 16,
+      "ReadingUnits": "RPM",
+      "MinReadingRange": 0,
+      "MaxReadingRange": 25000,
+      "Redundancy": [
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Redundancy/0"
+        }
+      ]
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/2",
+      "MemberId": "2",
+      "Name": "Fan3",
+      "FanName": "Fan3",
+      "PhysicalContext": "Backplane",
+      "Status": {
+        "State": "Enabled",
+        "Health": "Warning"
+      },
+      "Reading": 4020,
+      "LowerThresholdCritical": 16,
+      "ReadingUnits": "RPM",
+      "MinReadingRange": 0,
+      "MaxReadingRange": 25000,
+      "Redundancy": [
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Redundancy/0"
+        }
+      ]
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/3",
+      "MemberId": "3",
+      "Name": "Fan4",
+      "FanName": "Fan4",
+      "PhysicalContext": "Backplane",
+      "Status": {
+        "State": "Enabled",
+        "Health": "Warning"
+      },
+      "Reading": 3900,
+      "LowerThresholdCritical": 16,
+      "ReadingUnits": "RPM",
+      "MinReadingRange": 0,
+      "MaxReadingRange": 25000,
+      "Redundancy": [
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Redundancy/0"
+        }
+      ]
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/4",
+      "MemberId": "4",
+      "Name": "Fan5",
+      "FanName": "Fan5",
+      "PhysicalContext": "Backplane",
+      "Status": {
+        "State": "Enabled",
+        "Health": "Warning"
+      },
+      "Reading": 4020,
+      "LowerThresholdCritical": 16,
+      "ReadingUnits": "RPM",
+      "MinReadingRange": 0,
+      "MaxReadingRange": 25000,
+      "Redundancy": [
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Redundancy/0"
+        }
+      ]
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/5",
+      "MemberId": "5",
+      "Name": "Fan6",
+      "FanName": "Fan6",
+      "PhysicalContext": "Backplane",
+      "Status": {
+        "State": "Enabled",
+        "Health": "Warning"
+      },
+      "Reading": 3960,
+      "LowerThresholdCritical": 16,
+      "ReadingUnits": "RPM",
+      "MinReadingRange": 0,
+      "MaxReadingRange": 25000,
+      "Redundancy": [
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Redundancy/0"
+        }
+      ]
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/6",
+      "MemberId": "6",
+      "Name": "Fan7",
+      "FanName": "Fan7",
+      "PhysicalContext": "Backplane",
+      "Status": {
+        "State": "Enabled",
+        "Health": "Warning"
+      },
+      "Reading": 4020,
+      "LowerThresholdCritical": 16,
+      "ReadingUnits": "RPM",
+      "MinReadingRange": 0,
+      "MaxReadingRange": 25000,
+      "Redundancy": [
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Redundancy/0"
+        }
+      ]
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/7",
+      "MemberId": "7",
+      "Name": "Fan8",
+      "FanName": "Fan8",
+      "PhysicalContext": "Backplane",
+      "Status": {
+        "State": "Enabled",
+        "Health": "Warning"
+      },
+      "Reading": 4020,
+      "LowerThresholdCritical": 16,
+      "ReadingUnits": "RPM",
+      "MinReadingRange": 0,
+      "MaxReadingRange": 25000,
+      "Redundancy": [
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Redundancy/0"
+        }
+      ]
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/8",
+      "MemberId": "8",
+      "Name": "Fan9",
+      "FanName": "Fan9",
+      "PhysicalContext": "Backplane",
+      "Status": {
+        "State": "Enabled",
+        "Health": "Warning"
+      },
+      "Reading": 3960,
+      "LowerThresholdCritical": 16,
+      "ReadingUnits": "RPM",
+      "MinReadingRange": 0,
+      "MaxReadingRange": 25000,
+      "Redundancy": [
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Redundancy/0"
+        }
+      ]
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/9",
+      "MemberId": "9",
+      "Name": "Fan10",
+      "FanName": "Fan10",
+      "PhysicalContext": "Backplane",
+      "Status": {
+        "State": "Enabled",
+        "Health": "Warning"
+      },
+      "Reading": 4020,
+      "LowerThresholdCritical": 16,
+      "ReadingUnits": "RPM",
+      "MinReadingRange": 0,
+      "MaxReadingRange": 25000,
+      "Redundancy": [
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Redundancy/0"
+        }
+      ]
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/10",
+      "MemberId": "10",
+      "Name": "Fan11",
+      "FanName": "Fan11",
+      "PhysicalContext": "Backplane",
+      "Status": {
+        "State": "Enabled",
+        "Health": "Warning"
+      },
+      "Reading": 3900,
+      "LowerThresholdCritical": 16,
+      "ReadingUnits": "RPM",
+      "MinReadingRange": 0,
+      "MaxReadingRange": 25000,
+      "Redundancy": [
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Redundancy/0"
+        }
+      ]
+    },
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/11",
+      "MemberId": "11",
+      "Name": "Fan12",
+      "FanName": "Fan12",
+      "PhysicalContext": "Backplane",
+      "Status": {
+        "State": "Enabled",
+        "Health": "Warning"
+      },
+      "Reading": 4020,
+      "LowerThresholdCritical": 16,
+      "ReadingUnits": "RPM",
+      "MinReadingRange": 0,
+      "MaxReadingRange": 25000,
+      "Redundancy": [
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Redundancy/0"
+        }
+      ]
+    }
+  ],
+  "Redundancy": [
+    {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Redundancy/0",
+      "MemberId": "0",
+      "Name": "BaseBoard System Fans",
+      "RedundancySet": [
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/0"
+        },
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/1"
+        },
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/2"
+        },
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/3"
+        },
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/4"
+        },
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/5"
+        },
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/6"
+        },
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/7"
+        },
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/8"
+        },
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/9"
+        },
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/10"
+        },
+        {
+          "@odata.id": "/redfish/v1/Chassis/Rack1-Block1/Thermal#/Fans/11"
+        }
+      ],
+      "Mode": "N+m",
+      "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+      },
+      "MinNumNeeded": 11,
+      "MaxNumSupported": 12
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "@odata.context": "/redfish/v1/$metadata#Manager.Manager",
+  "@odata.id": "/redfish/v1/Managers/Rack1-PowerBay2-MC1",
+  "@odata.type": "#Manager.v1_1_0.Manager",
+  "Id": "Rack1-PowerBay2-MC1",
+  "Name": "UnmanagedMC",
+  "ManagerType": "AuxiliaryController",
+  "Description": "G5 Unmanaged MC in PowerBay",
+  "FirmwareVersion": "03.08.009",
+  "Status": {
+    "State": "Enabled",
+    "Health": "OK"
+  },
+  "Links": {
+    "ManagerForChassis": [
+      {
+        "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay2"
+      }
+    ],
+    "ManagerInChassis": {
+      "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay2"
+    }
+  },
+  "Actions": {
+    "#Manager.Reset": {
+      "target": "/redfish/v1/Managers/Rack1-PowerBay2-MC1/Actions/Manager.Reset",
+      "ResetType@Redfish.AllowableValues": [
+        "GracefulRestart",
+        "ForceRestart"
+      ]
+    },
+    "Oem": {
+    }
+  },
+  "Oem": {
+    "Dell_G5MC": {
+      "LastUpdateStatus": "UPDATE_SUCCESSFUL"
+    }
+  }
+}

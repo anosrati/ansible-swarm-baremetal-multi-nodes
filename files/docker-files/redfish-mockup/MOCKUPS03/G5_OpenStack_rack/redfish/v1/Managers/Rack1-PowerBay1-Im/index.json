@@ -1,0 +1,42 @@
+{
+  "@odata.context": "/redfish/v1/$metadata#Managers/Members/$entity",
+  "@odata.id": "/redfish/v1/Managers/Rack1-PowerBay1-Im",
+  "@odata.type": "#Managers.1.0.0.Manager",
+  "Id": "Rack1-PowerBay1-Im",
+  "Name": "Im",
+  "ManagerType": "AuxiliaryController",
+  "Description": "G5 Infrastructure Manager (IM)",
+  "FirmwareVersion": "02.30.014",
+  "Status": {
+    "State": "Enabled",
+    "Health": "OK"
+  },
+  "Links": {
+    "ManagerForChassis": [
+      {
+        "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay1"
+      }
+    ],
+    "ManagerInChassis": {
+        "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay1"
+    }
+  },
+  "Actions": {
+    "#Manager.Reset": {
+      "target": "/redfish/v1/Managers/Rack1-PowerBay1-Im/Actions/Manager.Reset",
+      "ResetType@Redfish.AllowableValues": [
+        "GracefulRestart",
+        "ForceRestart"
+      ]
+    },
+    "Oem": {
+    }
+  },
+  "Oem": {
+    "Dell_G5MC": {
+      "LastUpdateStatus": "LLC_UPDATE_SUCCESSFUL",
+      "SafeBoot": "NO"
+    }
+  }
+}
+

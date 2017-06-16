@@ -1,0 +1,37 @@
+{
+  "@odata.context": "/redfish/v1/$metadata#ServiceRoot.ServiceRoot",
+  "@odata.id": "/redfish/v1/",
+  "@odata.type": "#ServiceRoot.1.0.0.ServiceRoot",
+  "Id": "RootService",
+  "Name": "Root Service",
+  "RedfishVersion": "1.0.0",
+  "UUID": "4C4C4544-434D-1001-8000-44A8421766AC",
+  "Systems": {
+    "@odata.id": "/redfish/v1/Systems"
+  },
+  "Chassis": {
+    "@odata.id": "/redfish/v1/Chassis"
+  },
+  "Managers": {
+    "@odata.id": "/redfish/v1/Managers"
+  },
+  "SessionService": {
+    "@odata.id": "/redfish/v1/SessionService"
+  },
+  "AccountService": {
+    "@odata.id": "/redfish/v1/AccountService"
+  },
+  "Registries": {
+    "@odata.id": "/redfish/v1/Registries"
+  },
+  "JsonSchemas": {
+    "@odata.id": "/redfish/v1/JsonSchemas"
+  },
+  "Links": {
+    "Sessions": {
+      "@odata.id": "/redfish/v1/SessionService/Sessions"
+    }
+  },
+  "Oem": {
+  }
+}

@@ -1,0 +1,6 @@
+OP:  GET  http://<ipAddr>/redfish
+EX:  curl http://192.168.19.3/redfish
+
+This is a redfish defined API to read the supported redfish protocol versions
+  from the root service.
+

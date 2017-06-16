@@ -1,0 +1,278 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#Power.Power",
+    "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay2/Power",
+    "@odata.type": "#Power.1.0.0.Power",
+    "Id": "Power",
+    "Name": "G5_PowerBay_Power",
+    "PowerControl": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay2/Power#/PowerControl/0",
+            "MemberId": "0",
+	    "Name": "Total_Power_Input",
+            "PowerConsumedWatts": 13233,
+	    "Status": {
+	            "State": "Enabled",
+	            "Health": "OK"
+	        }
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay2/Power#/PowerControl/1",
+            "MemberId": "1",
+	    "Name": "Total_Power_Output",
+            "PowerConsumedWatts": 12791,
+	    "Status": {
+	            "State": "Enabled",
+	            "Health": "OK"
+	        }
+        }
+    ],
+    "Voltages": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay2/Power#/Voltages/0", 
+            "MemberId": "0",
+            "Name": "InputVoltage_AC",
+            "SensorNumber": 11,
+            "Status": {
+                "State": "Enabled",
+                "Health": "OK"
+            },
+            "ReadingVolts": 121,
+            "MinReadingRange": 0,
+            "MaxReadingRange": 200,
+            "PhysicalContext": "PowerSupplyBay"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay2/Power#/Voltages/1",
+            "MemberId": "1",
+            "Name": "InputVoltage_DC",
+            "SensorNumber": 12,
+            "Status": {
+                "State": "Enabled",
+                "Health": "OK"
+            },
+            "ReadingVolts": 0,
+            "MinReadingRange": 0,
+            "MaxReadingRange": 200,
+            "PhysicalContext": "PowerSupplyBay"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay2/Power#/Voltages/2",
+            "MemberId": "2",
+            "Name": "OutputVoltage",
+            "SensorNumber": 13,	
+            "Status": {
+                "State": "Enabled",
+                "Health": "OK"	
+            },
+            "ReadingVolts": 12.3,
+            "UpperThresholdNonCritical": 12.5,
+            "UpperThresholdCritical": 13,
+            "LowerThresholdNonCritical": 11.5,
+            "LowerThresholdCritical": 11,
+            "MinReadingRange": 0,
+            "MaxReadingRange": 20,
+            "PhysicalContext": "Backplane",
+            "RelatedItem": [
+                {"@odata.id": "/redfish/v1/Chassis/Rack1-Block1" },
+                {"@odata.id": "/redfish/v1/Chassis/Rack1-Block2" },
+                {"@odata.id": "/redfish/v1/Chassis/Rack1-Block3" },
+                {"@odata.id": "/redfish/v1/Chassis/Rack1-Block4" },
+                {"@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay1" },
+                {"@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay2" }
+            ]
+        }
+    ],
+    "PowerSupplies": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay2/Power#/PowerSupplies/0",
+            "MemberId": "0",
+            "Name": "Psu1",
+            "Status": {
+                "State": "Enabled",
+                "Health": "Ok"
+            },
+            "Oem": {},
+            "PowerSupplyType": "AC",
+            "LineInputVoltageType": "ACMidLine",
+            "LineInputVoltage": 122,
+            "PowerCapacityWatts": 1600,
+            "LastPowerOutputWatts": 1021,
+            "SerialNumber": "CN179724AV0057",
+            "Redundancy": [
+              { "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay1/Power#/Redundancy/0" } 
+            ]
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay2/Power#/PowerSupplies/1",
+            "MemberId": "1",
+            "Name": "Psu2",
+            "Status": {
+                "State": "Enabled",
+                "Health": "Ok"
+            },
+            "Oem": {},
+            "PowerSupplyType": "AC",
+            "LineInputVoltageType": "ACMidLine",
+            "LineInputVoltage": 122,
+            "PowerCapacityWatts": 1600,
+            "LastPowerOutputWatts": 192,
+            "SerialNumber": "CN179724AV0058", 
+            "Redundancy": [
+              { "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay1/Power#/Redundancy/0" }
+            ]
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay2/Power#/PowerSupplies/2",
+            "MemberId": "2",
+            "Name": "Psu3",
+            "Status": {
+                "State": "Enabled",
+                "Health": "Ok"
+            },
+            "Oem": {},
+            "PowerSupplyType": "AC",
+            "LineInputVoltageType": "ACMidLine",
+            "LineInputVoltage": 122,
+            "PowerCapacityWatts": 1600,
+            "LastPowerOutputWatts": 192,
+            "SerialNumber": "CN179724AV0059", 
+            "Redundancy": [
+              { "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay1/Power#/Redundancy/0" }
+            ]
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay2/Power#/PowerSupplies/3",
+            "MemberId": "3",
+            "Name": "Psu4",
+            "Status": {
+                "State": "Enabled",
+                "Health": "Ok"
+            },
+            "Oem": {},
+            "PowerSupplyType": "AC",
+            "LineInputVoltageType": "ACMidLine",
+            "LineInputVoltage": 122,
+            "PowerCapacityWatts": 1600,
+            "LastPowerOutputWatts": 192,
+            "SerialNumber": "CN179724AV0061", 
+            "Redundancy": [
+              { "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay1/Power#/Redundancy/0" }
+            ]
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay2/Power#/PowerSupplies/4",
+            "MemberId": "4",
+            "Name": "Psu5",
+            "Status": {
+                "State": "Enabled",
+                "Health": "Ok"
+            },
+            "Oem": {},
+            "PowerSupplyType": "AC",
+            "LineInputVoltageType": "ACMidLine",
+            "LineInputVoltage": 122,
+            "PowerCapacityWatts": 1600,
+            "LastPowerOutputWatts": 192,
+            "SerialNumber": "CN179724AV0062", 
+            "Redundancy": [
+              { "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay1/Power#/Redundancy/0" }
+            ]
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay2/Power#/PowerSupplies/5",
+            "MemberId": "5",
+            "Name": "Psu6",
+            "Status": {
+                "State": "Enabled",
+                "Health": "Ok"
+            },
+            "Oem": {},
+            "PowerSupplyType": "AC",
+            "LineInputVoltageType": "ACMidLine",
+            "LineInputVoltage": 122,
+            "PowerCapacityWatts": 1600,
+            "LastPowerOutputWatts": 192,
+            "SerialNumber": "CN179724AV0063", 
+            "Redundancy": [
+              { "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay1/Power#/Redundancy/0" }
+            ]
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay2/Power#/PowerSupplies/6",
+            "MemberId": "6",
+            "Name": "Psu7",
+            "Status": {
+                "State": "Enabled",
+                "Health": "Ok"
+            },
+            "Oem": {},
+            "PowerSupplyType": "AC",
+            "LineInputVoltageType": "ACMidLine",
+            "LineInputVoltage": 122,
+            "PowerCapacityWatts": 1600,
+            "LastPowerOutputWatts": 192,
+            "SerialNumber": "CN179724AV0064", 
+            "Redundancy": [
+              { "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay1/Power#/Redundancy/0" }
+            ]
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay2/Power#/PowerSupplies/7",
+            "MemberId": "7",
+            "Name": "Psu8",
+            "Status": {
+                "State": "Enabled",
+                "Health": "Ok"
+            },
+            "Oem": {},
+            "PowerSupplyType": "AC",
+            "LineInputVoltageType": "ACMidLine",
+            "LineInputVoltage": 122,
+            "PowerCapacityWatts": 1600,
+            "LastPowerOutputWatts": 192,
+            "SerialNumber": "CN179724AV0065", 
+            "Redundancy": [
+              { "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay1/Power#/Redundancy/0" }
+            ]
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay2/Power#/PowerSupplies/8",
+            "MemberId": "8",
+            "Name": "Psu9",
+            "Status": {
+                "State": "Enabled",
+                "Health": "Ok"
+            },
+            "Oem": {},
+            "PowerSupplyType": "AC",
+            "LineInputVoltageType": "ACMidLine",
+            "LineInputVoltage": 122,
+            "PowerCapacityWatts": 1600,
+            "LastPowerOutputWatts": 192,
+            "SerialNumber": "CN179724AV0066", 
+            "Redundancy": [
+              { "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay1/Power#/Redundancy/0" }
+            ]
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay2/Power#/PowerSupplies/9",
+            "MemberId": "9",
+            "Name": "Psu10",
+            "Status": {
+                "State": "Enabled",
+                "Health": "Ok"
+            },
+            "Oem": {},
+            "PowerSupplyType": "AC",
+            "LineInputVoltageType": "ACMidLine",
+            "LineInputVoltage": 122,
+            "PowerCapacityWatts": 1600,
+            "LastPowerOutputWatts": 192,
+            "SerialNumber": "CN179724AV0067", 
+            "Redundancy": [
+              { "@odata.id": "/redfish/v1/Chassis/Rack1-PowerBay1/Power#/Redundancy/0" }
+            ]
+        }
+    ],
+    "Oem": {}
+}
