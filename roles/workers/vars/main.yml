@@ -7,10 +7,10 @@ dns_searchs:
    - "{{dns_domain}}"
 
 
-#If you want to install Docker on the swarm client by using docker-machine,
+#If you want to install Docker on the swarm nodes by using docker-machine,
 #set the following to true.
 #Or
-#If you want to install Docker on the swarm client by installing Docker on
+#If you want to install Docker on the swarm nodes by installing Docker on
 #each of the Docker workers, set the following to false
 #Install_by_docker_machine: false
 
