@@ -40,7 +40,7 @@
   when: Install_by_docker_machine
   tags: [base_config,ssh]
 
-- name: Add swarm user to the nodes
+- name: Add swarm user to the workers
   user:
     name: swarmadmin
     comment: "Docker Swarm Admin"

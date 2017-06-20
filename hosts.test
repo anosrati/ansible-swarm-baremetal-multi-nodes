@@ -1,7 +1,7 @@
 [docker-swarm-manager]
 swarm-manager ansible_host=100.68.124.140
 
-[docker-swarm-nodes]
-swarm-node-01 ansible_host=100.68.124.141
-swarm-node-02 ansible_host=100.68.124.142
-swarm-node-03 ansible_host=100.68.124.143
+[docker-swarm-workers]
+swarm-worker-01 ansible_host=100.68.124.141
+swarm-worker-02 ansible_host=100.68.124.142
+swarm-worker-03 ansible_host=100.68.124.143

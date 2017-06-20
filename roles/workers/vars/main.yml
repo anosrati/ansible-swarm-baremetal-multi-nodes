@@ -11,7 +11,7 @@ dns_searchs:
 #set the following to true.
 #Or
 #If you want to install Docker on the swarm client by installing Docker on
-#each of the Docker workers (nodes), set the following to false
+#each of the Docker workers, set the following to false
 #Install_by_docker_machine: false
 
 #docker repo address

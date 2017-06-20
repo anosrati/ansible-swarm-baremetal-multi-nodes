@@ -11,9 +11,9 @@
 
   - hosts: docker-swarm-manager
     tasks:
-    - name: Use docker machine to install docker on the swarm nodes
+    - name: Use docker machine to install docker on the swarm workers
       shell: docker-machine create --driver generic --generic-ip-address="{{ hostvars[item]['ansible_host'] }}" --generic-ssh-user swarmadmin --generic-ssh-key /root/.ssh/id_rsa_2048_swarmadmin "{{ hostvars[item]['inventory_hostname'] }}"
-      with_items:  "{{ groups['docker-swarm-nodes'] }}"
+      with_items:  "{{ groups['docker-swarm-workers'] }}"
       when: Install_by_docker_machine
       tags: [docker-swarm,docker-machine]
 
@@ -24,7 +24,7 @@
       shell: docker swarm init --advertise-addr "{{ ansible_host }}"
       tags: [docker-swarm,swarm-initialize]
 
-    - name: Finding the swarm token to let swarm nodes joins the swarm cluster
+    - name: Finding the swarm token to let swarm workers joins the swarm cluster
       shell: docker swarm join-token worker -q
       register: result
       tags: [docker-swarm,swarm-initialize]
@@ -33,11 +33,11 @@
       local_action: copy content={{ result.stdout }} dest=temp/token
       tags: [docker-swarm,swarm-initialize]
 
-  - hosts: docker-swarm-nodes
+  - hosts: docker-swarm-workers
     vars:
       swarm_token: "{{ lookup('file', 'temp/token') }}"
     tasks:
-    - name: Joning swarm nodes to the swarm cluster by using the stored token
+    - name: Joning swarm workers to the swarm cluster by using the stored token
       shell: docker swarm join --token "{{ swarm_token }}"  "{{ hostvars[item]['ansible_host'] }}":2377
       with_items:  "{{ groups['docker-swarm-manager'] }}"
       tags: [docker-swarm,swarm-initialize]
@@ -51,7 +51,7 @@
       tags: [docker-swarm,overlay-network]
 
 
-  - hosts: docker-swarm-nodes
+  - hosts: docker-swarm-workers
     tasks:
     - file:
         path: /root/swarm/docker-files
@@ -61,7 +61,7 @@
         mode: 0644
       tags: [docker-swarm,docker-images]
 
-    - name: copy "docker-files/docker-files.tar.gz" to the swarm nodes and extract it in their docker-files directory
+    - name: copy "docker-files/docker-files.tar.gz" to the swarm workers and extract it in their docker-files directory
       unarchive:
         src: ./files/docker-files/docker-files.tar.gz
         dest: /root/swarm/docker-files
@@ -71,7 +71,7 @@
       tags: [docker-swarm,docker-images]
 
 
-  - hosts: docker-swarm-manager
+  - hosts: docker-swarm-workers
     tasks:
     - file:
         path: /root/swarm/scripts
@@ -81,7 +81,7 @@
         mode: 0644
       tags: [docker-swarm,docker-images]
 
-    - name: copy "docker-files/docker-files.tar.gz" to the swarm nodes and extract it in their docker-files directory
+    - name: copy "docker-files/scripts.tar.gz" to the swarm workers and extract it in their scripts directory
       unarchive:
         src: ./files/scripts/scripts.tar.gz
         dest: /root/swarm/scripts
